@@ -1,0 +1,35 @@
+<section class="card-list">
+  @for (card of cardInfo(); track card) {
+    <article class="card">
+      <header class="card-header">
+        <h1 class="font-bold text-2xl">Contact</h1>
+      </header>
+      <p><b>Email: </b>{{ card.email }} </p>
+      <p><b>Phone: </b>{{ card.phone}} </p>
+    </article>
+    <article class="card">
+      <header class="card-header">
+        <h1 class="font-bold text-2xl">Address</h1>
+      </header>
+      <p><b>Street: </b>{{ card.address.street }} </p>
+      <p><b>Suite: </b>{{ card.address.suite }} </p>
+      <p><b>City: </b>{{ card.address.city }} </p>
+      <p><b>Zip Code: </b>{{ card.address.zipcode }} </p>
+      <p><b>Country: </b>U.S.</p>
+    </article>
+    <article class="card">
+      <header class="card-header">
+        <h1 class="font-bold text-2xl">Company</h1>
+      </header>
+      <p><b>Name: </b>{{ card.company.name }} </p>
+      <p><b>Catch Phrase: </b>{{ card.company.catchPhrase }} </p>
+      <p><b>About: </b>{{ card.company.bs }} </p>
+    </article>
+    <article class="card web-card">
+      <header class="card-header">
+        <h1 class="font-bold text-2xl">Website</h1>
+      </header>
+      <p>www.{{ card.website }}</p>
+    </article>
+  }
+</section>

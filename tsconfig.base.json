@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@angular-task/card": ["shared/card/src/index.ts"],
-      "@angular-task/user-model": ["shared/models/user.model.ts"]
+      "@angular-task/user-model": ["shared/models/user.model.ts"],
+      "@angular-task/user-service": ["shared/services/user/user.service.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

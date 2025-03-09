@@ -1,1 +1,48 @@
-<p>user-profile works!</p>
+<section>
+  @if(currentUser()) {
+    @for(user of currentUser(); track user.id) {
+      <section class="profile">
+        <header class="profile-header">
+          <h1>.</h1>
+        </header>
+        <div class="profile-body">
+          <div class="profile-card">
+            <div class="profile-card-wrapper">
+              <div class="profile-card-favorite">
+                @if(user.isFavorite === false) {
+                  <i class="favorite-icon icon" (click)="favorite(user.id)">
+                    &#9825;
+                  </i>
+                } @else {
+                  <i class="unfavorite-icon icon" (click)="unfavorite(user.id)">
+                    &#9829;
+                  </i>
+                }
+              </div>
+              <div class="profile-card-photo">
+                &#9786;
+              </div>
+              <h4 class="text-xl font-bold text-left"><b>{{ user.name }}</b></h4>
+              <p class="text-left">&commat;{{user.username}}</p>
+            </div>
+            <article style="padding: 30px;text-align: justify;">
+              <h1 class="text-xl font-bold">About</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="profile-sub-body">
+          <crx-user-info-card [cardInfo]="currentUser()"/>
+        </div>
+      </section>
+    }
+  } @else {
+    <h1 class="text-center">User Not Found</h1>
+  }
+</section>
+
+
+
+

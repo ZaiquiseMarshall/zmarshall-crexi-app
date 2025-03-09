@@ -1,1 +1,27 @@
-<p>Card works!</p>
+<div class="card">
+  <div class="card-favorite">
+    @if(cardInfo()?.isFavorite === false) {
+      <i class="favorite-icon icon" (click)="favorite(cardInfo()!.id)">
+        &#9825;
+      </i>
+    } @else {
+      <i class="unfavorite-icon icon" (click)="unfavorite(cardInfo()!.id)">
+        &#9829;
+      </i>
+    }
+  </div>
+  <div class="card-bg-section">
+    <p><b>&commat;{{ cardInfo()?.username }}</b></p>
+    <p>{{ cardInfo()?.email }}</p>
+    <p>{{ cardInfo()?.phone }}</p>
+    <p>www.{{ cardInfo()?.website }}</p>
+  </div>
+  <div class="card-container">
+    <div class="card-profile">
+      &#9786;
+    </div>
+    <h4><b>{{ cardInfo()?.name }}</b></h4>
+    <p>{{ cardInfo()?.company?.name }}</p>
+    <button class="card-button" (click)="cardButton(cardInfo()!.id)">{{ cardButtonNText() }}</button>
+  </div>
+</div>

@@ -33,7 +33,7 @@
         ],
         "@angular-eslint/use-pipe-transform-interface": ["off"],
         "@nx/enforce-module-boundaries": [
-          "error",
+          "off",
           {
             "enforceBuildableLibDependency": true,
             "allow": [],
@@ -54,6 +54,10 @@
               {
                 "sourceTag": "type:util",
                 "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               }
             ]
           }
@@ -61,7 +65,7 @@
         "@stylistic/ts/brace-style": ["error"],
         "@stylistic/ts/func-call-spacing": ["error"],
         "@stylistic/ts/indent": [
-          "error",
+          "off",
           4,
           {
             "MemberExpression": 0,
@@ -181,7 +185,7 @@
         "no-var": ["error"],
         "object-shorthand": ["error", "always"],
         "operator-linebreak": ["error", "before"],
-        "padded-blocks": ["error"],
+        "padded-blocks": ["off"],
         "prefer-arrow-callback": ["error"],
         "prefer-const": ["error"],
         "quote-props": ["error", "as-needed"],

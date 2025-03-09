@@ -1,0 +1,9 @@
+<section class="sidenav">
+  @if( showBackBtn | async ) {
+    <ng-container>
+      <ul>
+        <li style="font-weight: 800; color: #0e3f50;" [routerLink]="['home']">&#8592; Back</li>
+      </ul>
+    </ng-container>
+  }
+<section>

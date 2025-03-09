@@ -3,6 +3,7 @@ import { UserProfileComponent } from './views/user-profile/user-profile.componen
 import { UserHomeComponent } from './views/user-home/user-home.component';
 
 export const appRoutes: Route[] = [
-    { path: '', component: UserHomeComponent },
-    { path: 'user/:id', component: UserProfileComponent }
+    { path: 'home', component: UserHomeComponent, title: 'Home' },
+    { path: 'users/:id', component: UserProfileComponent, title: 'User Profile' },
+    { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

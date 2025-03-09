@@ -1,1 +1,46 @@
-<p>user-home works!</p>
+<section class="profile">
+  <header class="profile-header">
+    <h1>.</h1>
+  </header>
+  <section class="profile-body">
+    <div class="profile-card">
+      <div class="profile-card-container">
+        <div class="profile-card-photo">
+          &#9786;
+        </div>
+        <h1><b>Welcome back, Admin</b></h1>
+        <p>&commat;AdminUser</p>
+      </div>
+    </div>
+    <div class="profile-favorite-view">
+      <h1 style="text-align:center; font-size: xxx-large;">Top Favorites</h1>
+      @if (favoriteUsers().length > 0) {
+        <div [@elementTransitions] class="profile-favorites-list">
+          @for(favUser of favoriteUsers().slice(0,6); track favUser) {
+            <div [@elementTransitions] [routerLink]="['/users', favUser.id]" class="content-pill">{{ favUser.name }}</div>
+          }
+        </div>
+        @if (favoriteUsers().length > 0) {
+          <p [@elementTransitions] style="text-align:center;"><button class="crx-button" (click)="viewAllFavorites()">View All</button></p>
+        }
+      } @else {
+        <h1 style="text-align:center;">When you add favorites, they will appear here...</h1>
+      }
+    </div>
+  </section>
+  <section class="profile-sub-body">
+    <div #profileControlCenter class="profile-control-center">
+      <input [(ngModel)]="query" class="filter-input" placeholder="Search by Name, Location, Email, or Username..."/>
+      <button class="filter-btn" (click)="filterUsers()" [disabled]="query === ''">Filter</button>
+      <button class="filter-btn" (click)="resetFilter()">Reset</button>
+    </div>
+    <h1 style="text-align:center;">List Returned {{ allUsers().length }} Users</h1>
+    <div class="profile-cards-container">
+      <ng-container>
+        @for(user of allUsers(); track user.id) {
+          <lib-card [@elementTransitions] [cardInfo]="user" (favoriteAction)="favorite($event)" (unfavoriteAction)="unfavorite($event)" cardButtonNText="View Profile" (cardButtonAction)="viewProfile($event)"/>
+        }
+      </ng-container>
+    </div>
+  </section>
+</section>

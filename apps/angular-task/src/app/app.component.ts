@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { routeTransition } from './app.animations';
+import { NavbarComponent } from './widgets/navbar/navbar.component';
 
 @Component({
-    host: {
-        class: 'block p-4'
-    },
-    imports: [RouterModule],
+    imports: [RouterModule, NavbarComponent],
     selector: 'crx-root',
     templateUrl: './app.component.html',
+    animations: [
+        routeTransition
+    ]
 })
 export class AppComponent {
-
     title = 'angular-task';
+    protected route = inject(ActivatedRoute);
 
 }

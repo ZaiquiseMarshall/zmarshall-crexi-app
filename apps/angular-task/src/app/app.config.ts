@@ -10,11 +10,14 @@ import { appRoutes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
+        provideHttpClientTesting(),
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(
             appRoutes,
@@ -29,6 +32,7 @@ export const appConfig: ApplicationConfig = {
                 scrollPositionRestoration: 'enabled',
             })
         ),
+        provideAnimations(),
         provideAnimationsAsync(),
     ],
 };
